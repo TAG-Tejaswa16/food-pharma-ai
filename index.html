@@ -263,7 +263,9 @@ placeholder="Search Apple, Oreo, Maggi, Nescafe, Dolo 650..."
 <button class="search-btn">
 Search
 </button>
-
+    
+<div id="result"></div>
+    
 </div>
 
 <div class="tools">
@@ -404,14 +406,35 @@ function searchFood() {
     if(foodDatabase[input]){
         const item = foodDatabase[input];
 
-        alert(
-            "Name: " + item.name +
-            "\nCalories: " + item.calories +
-            "\nInfo: " + item.benefits
-        );
-    } else {
-        alert("Item not found in database.");
-    }
+        document.getElementById("result").innerHTML = `
+<div style="
+background:#111827;
+padding:25px;
+border-radius:20px;
+margin-top:30px;
+max-width:800px;
+margin-left:auto;
+margin-right:auto;
+color:white;
+">
+
+<h2>${item.name}</h2>
+
+<img src="https://via.placeholder.com/300x200"
+style="width:100%;border-radius:15px;margin:15px 0;">
+
+<p><strong>Calories:</strong> ${item.calories}</p>
+
+<p><strong>Information:</strong> ${item.benefits}</p>
+
+</div>
+`;
+  } else {
+    document.getElementById("result").innerHTML =
+    "<h2 style='color:red;text-align:center;margin-top:20px;'>Item not found in database.</h2>";
+}
+        
+   
 }
 
 document.querySelector("button").addEventListener("click", searchFood);
