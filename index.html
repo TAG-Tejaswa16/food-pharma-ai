@@ -369,6 +369,52 @@ Start Exploring
 Food & Pharma AI © 2026
 
 </footer>
+<script>
+const foodDatabase = {
+    "apple": {
+        name: "Apple",
+        calories: "52 kcal per 100g",
+        benefits: "Rich in fiber and Vitamin C"
+    },
+    "banana": {
+        name: "Banana",
+        calories: "89 kcal per 100g",
+        benefits: "High in potassium and energy"
+    },
+    "oreo": {
+        name: "Oreo Biscuit",
+        calories: "480 kcal per 100g",
+        benefits: "Popular snack biscuit"
+    },
+    "maggi": {
+        name: "Maggi Noodles",
+        calories: "385 kcal per 100g",
+        benefits: "Instant noodle product"
+    },
+    "dolo 650": {
+        name: "Dolo 650",
+        calories: "Medicine",
+        benefits: "Used for fever and pain relief"
+    }
+};
 
+function searchFood() {
+    const input = document.querySelector("input").value.toLowerCase().trim();
+
+    if(foodDatabase[input]){
+        const item = foodDatabase[input];
+
+        alert(
+            "Name: " + item.name +
+            "\nCalories: " + item.calories +
+            "\nInfo: " + item.benefits
+        );
+    } else {
+        alert("Item not found in database.");
+    }
+}
+
+document.querySelector("button").addEventListener("click", searchFood);
+</script>
 </body>
 </html>
