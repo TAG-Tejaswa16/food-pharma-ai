@@ -270,8 +270,8 @@ Search
 
 <div class="tools">
 
-<div class="tool">📷 Camera Scan</div>
-
+<div class="tool" onclick="openCamera()">📷 Camera Scan</div>
+    
 <div class="tool">🖼 Upload Image</div>
 
 <div class="tool">🎤 Voice Search</div>
@@ -463,6 +463,19 @@ margin:15px 0;
 }
 
 document.querySelector("button").addEventListener("click", searchFood);
+    function openCamera() {
+
+    const input = document.createElement("input");
+
+    input.type = "file";
+
+    input.accept = "image/*";
+
+    input.capture = "environment";
+
+    input.click();
+
+}
 </script>
 </body>
 </html>
